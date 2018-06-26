@@ -1,43 +1,47 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: "androidx.navigation.safeargs"
 
 apply from: '../dependencies.gradle'
 
 android {
     compileSdkVersion androidCompileSdkVersion
-    buildToolsVersion androidBuildToolsVersion
+
 
     defaultConfig {
-        applicationId "com.marcosholgado.droidcon"
         minSdkVersion androidMinSdkVersion
         targetSdkVersion androidTargetSdkVersion
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(path: ':articlelist')
-
     implementation libraries.kotlin
     implementation libraries.appCompat
-    implementation libraries.navigationFragment
-    implementation libraries.navigationUI
-
+    implementation libraries.retrofit
+    implementation libraries.rxAndroid
+    implementation libraries.rxJava2
     implementation libraries.constraintLayout
 
-//    implementation 'androidx.legacy:legacy-support-v4:1.0.0-alpha1'
     testImplementation libraries.jUnit
     androidTestImplementation libraries.testRunner
     androidTestImplementation libraries.espressoCore
