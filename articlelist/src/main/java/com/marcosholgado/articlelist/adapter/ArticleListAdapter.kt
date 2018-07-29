@@ -49,7 +49,6 @@ class ArticleListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         notifyItemRemoved(initPosition)
 
         items.addAll(articles)
-        items.add(loadingItem)
         notifyItemRangeChanged(initPosition, items.size + 1)
     }
 

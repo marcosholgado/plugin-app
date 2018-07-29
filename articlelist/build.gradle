@@ -40,16 +40,11 @@ dependencies {
     implementation libraries.retrofit
     implementation libraries.retrofitRxJava2
     implementation libraries.converterGson
-    implementation libraries.rxAndroid
-    implementation libraries.rxJava2
     implementation libraries.cardView
 
     // Dagger2
     kapt libraries.daggerCompiler
     kapt libraries.daggerProcessor
-    implementation libraries.dagger
-    implementation libraries.daggerAndroid
-    implementation libraries.daggerAndroidSupport
 
     testImplementation libraries.jUnit
     androidTestImplementation libraries.testRunner

@@ -11,6 +11,7 @@ import com.marcosholgado.articlelist.adapter.ArticleListAdapter
 import com.marcosholgado.articlelist.di.ArticleListModule
 import com.marcosholgado.articlelist.di.DaggerArticleListComponent
 import com.marcosholgado.articlelist.model.Article
+import com.marcosholgado.core.di.CoreInjectHelper
 import kotlinx.android.synthetic.main.fragment_article_list.*
 import javax.inject.Inject
 
@@ -33,6 +34,7 @@ class ArticleListFragment : Fragment(), ArticleListContract.View {
     override fun onAttach(context: Context) {
         DaggerArticleListComponent
             .builder()
+            .coreComponent(CoreInjectHelper.provideCoreComponent(activity!!.applicationContext))
             .articleListModule(ArticleListModule(this))
             .build()
             .inject(this)

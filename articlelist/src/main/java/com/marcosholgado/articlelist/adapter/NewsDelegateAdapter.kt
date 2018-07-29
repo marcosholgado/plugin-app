@@ -4,6 +4,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.marcosholgado.articlelist.R
 import com.marcosholgado.articlelist.model.Article
+import com.marcosholgado.core.di.GlideApp
 import com.marcosholgado.core.inflate
 import com.marcosholgado.core.list_utils.ViewType
 import com.marcosholgado.core.list_utils.ViewTypeDelegateAdapter
@@ -31,11 +32,16 @@ class NewsDelegateAdapter(val viewActions: onViewSelectedListener?) :
         private val title = itemView.title
         private val subtitle = itemView.subtitle
         private val category = itemView.category
+        private val thumbnail = itemView.thumbnail
 
         fun bind(item: Article) {
             title.text = item.title
             subtitle.text = item.byline
             category.text = item.section
+            GlideApp
+                .with(this.itemView)
+                .load(item.getThumbnail())
+                .into(thumbnail)
         }
     }
 }

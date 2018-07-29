@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 apply from: '../dependencies.gradle'
 
@@ -31,6 +32,18 @@ dependencies {
     api libraries.appCompat
     api libraries.constraintLayout
     api libraries.recyclerView
+
+    api libraries.rxAndroid
+    api libraries.rxJava2
+
+    api libraries.dagger
+    api libraries.daggerAndroid
+    api libraries.daggerAndroidSupport
+    kapt libraries.daggerCompiler
+    kapt libraries.daggerProcessor
+
+    api libraries.glide
+    kapt libraries.glideCompiler
 
     testImplementation libraries.jUnit
     androidTestImplementation libraries.testRunner

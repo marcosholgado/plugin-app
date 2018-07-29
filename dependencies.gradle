@@ -6,6 +6,7 @@ ext {
     androidSupportLibraryVersion = '28.0.0-alpha3'
     androidNavVersion = "1.0.0-alpha02"
     daggerVersion = "2.16"
+    glideVersion = "4.8.0-SNAPSHOT"
 
     libraries = [
             kotlin : 'org.jetbrains.kotlin:kotlin-stdlib-jre7:1.2.31',
@@ -25,6 +26,8 @@ ext {
             dagger : "com.google.dagger:dagger:$daggerVersion",
             daggerAndroid : "com.google.dagger:dagger-android:$daggerVersion",
             daggerAndroidSupport : "com.google.dagger:dagger-android-support:$daggerVersion",
+            glide : "com.github.bumptech.glide:glide:$glideVersion",
+            glideCompiler : "com.github.bumptech.glide:compiler:$glideVersion",
             jUnit : 'junit:junit:4.12',
             testRunner : 'androidx.test:runner:1.1.0-alpha3',
             espressoCore : 'androidx.test.espresso:espresso-core:3.1.0-alpha3'
