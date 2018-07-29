@@ -6,5 +6,5 @@
     <fragment
         android:id="@+id/articleListAction"
         android:name="com.marcosholgado.articlelist.ArticleListFragment"
-        android:label="ArticleListFragment" />
+        android:label="@string/top_stories_title" />
 </navigation>

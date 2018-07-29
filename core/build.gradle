@@ -1,8 +1,6 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: "androidx.navigation.safeargs"
 
 apply from: '../dependencies.gradle'
 
@@ -11,30 +9,28 @@ android {
     buildToolsVersion androidBuildToolsVersion
 
     defaultConfig {
-        applicationId "com.marcosholgado.droidcon"
         minSdkVersion androidMinSdkVersion
         targetSdkVersion androidTargetSdkVersion
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    implementation project(path: ':articlelist')
-    implementation project(path: ':core')
-
-    implementation libraries.navigationFragment
-    implementation libraries.navigationUI
+    api libraries.kotlin
+    api libraries.appCompat
+    api libraries.constraintLayout
+    api libraries.recyclerView
 
     testImplementation libraries.jUnit
     androidTestImplementation libraries.testRunner

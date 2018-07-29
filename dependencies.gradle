@@ -5,17 +5,26 @@ ext {
     androidTargetSdkVersion = 28
     androidSupportLibraryVersion = '28.0.0-alpha3'
     androidNavVersion = "1.0.0-alpha02"
+    daggerVersion = "2.16"
 
     libraries = [
             kotlin : 'org.jetbrains.kotlin:kotlin-stdlib-jre7:1.2.31',
             appCompat :  'androidx.appcompat:appcompat:1.0.0-alpha3',
             retrofit : 'com.squareup.retrofit2:retrofit:2.4.0',
+            retrofitRxJava2 : 'com.squareup.retrofit2:adapter-rxjava2:2.4.0',
+            converterGson : 'com.squareup.retrofit2:converter-gson:2.4.0',
             rxAndroid : 'io.reactivex.rxjava2:rxandroid:2.0.2',
             rxJava2 : 'io.reactivex.rxjava2:rxjava:2.1.10',
             navigationFragment :  "android.arch.navigation:navigation-fragment-ktx:$androidNavVersion",
             navigationUI : "android.arch.navigation:navigation-ui:$androidNavVersion",
             constraintLayout : 'androidx.constraintlayout:constraintlayout:1.1.0',
-
+            cardView : 'androidx.cardview:cardview:1.0.0-alpha1',
+            recyclerView : 'androidx.recyclerview:recyclerview:1.0.0-alpha1',
+            daggerCompiler : "com.google.dagger:dagger-compiler:$daggerVersion",
+            daggerProcessor : "com.google.dagger:dagger-android-processor:$daggerVersion",
+            dagger : "com.google.dagger:dagger:$daggerVersion",
+            daggerAndroid : "com.google.dagger:dagger-android:$daggerVersion",
+            daggerAndroidSupport : "com.google.dagger:dagger-android-support:$daggerVersion",
             jUnit : 'junit:junit:4.12',
             testRunner : 'androidx.test:runner:1.1.0-alpha3',
             espressoCore : 'androidx.test.espresso:espresso-core:3.1.0-alpha3'

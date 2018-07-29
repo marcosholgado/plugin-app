@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 apply from: '../dependencies.gradle'
@@ -15,6 +16,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
 
     }
 
@@ -33,14 +35,21 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':core')
 
-    implementation libraries.kotlin
-    implementation libraries.appCompat
     implementation libraries.retrofit
+    implementation libraries.retrofitRxJava2
+    implementation libraries.converterGson
     implementation libraries.rxAndroid
     implementation libraries.rxJava2
-    implementation libraries.constraintLayout
+    implementation libraries.cardView
+
+    // Dagger2
+    kapt libraries.daggerCompiler
+    kapt libraries.daggerProcessor
+    implementation libraries.dagger
+    implementation libraries.daggerAndroid
+    implementation libraries.daggerAndroidSupport
 
     testImplementation libraries.jUnit
     androidTestImplementation libraries.testRunner
