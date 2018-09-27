@@ -11,16 +11,14 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var navController: NavController
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         navController = findNavController(R.id.mainNavFragment)
-        setupActionBarWithNavController(this, navController)
         NavigationUI.setupWithNavController(bottomNavView, navController)
-    }
 
-    override fun onSupportNavigateUp() = findNavController(R.id.mainNavFragment).navigateUp()
+    }
 }

@@ -7,4 +7,8 @@
         android:id="@+id/articleListAction"
         android:name="com.marcosholgado.articlelist.ArticleListFragment"
         android:label="@string/top_stories_title" />
+    <fragment
+        android:id="@+id/weatherAction"
+        android:name="com.marcosholgado.weather.WeatherFragment"
+        android:label="@string/your_weather_title" />
 </navigation>

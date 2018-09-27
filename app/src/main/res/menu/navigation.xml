@@ -3,5 +3,9 @@
     <item
         android:id="@id/articleListAction"
         android:icon="@android:drawable/ic_menu_camera"
-        android:title="Home" />
+        android:title="@string/news" />
+    <item
+        android:id="@id/weatherAction"
+        android:icon="@android:drawable/ic_btn_speak_now"
+        android:title="@string/weather" />
 </menu>

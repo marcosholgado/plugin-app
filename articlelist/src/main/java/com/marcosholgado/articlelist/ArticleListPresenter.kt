@@ -14,7 +14,7 @@ class ArticleListPresenter @Inject constructor(
     @Named("mainScheduler") private val mainScheduler: Scheduler
 ) : ArticleListContract.Presenter {
 
-    var disposable: Disposable? = null
+    private var disposable: Disposable? = null
 
     override fun getArticles() {
         disposable = articleListService.getArticlesList("home")
