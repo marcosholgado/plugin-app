@@ -11,13 +11,14 @@ class ArticleListPresenter @Inject constructor(
     private val articleListService: ArticleListService,
     private val view: ArticleListContract.View,
     @Named("ioScheduler") private val ioScheduler: Scheduler,
-    @Named("mainScheduler") private val mainScheduler: Scheduler
+    @Named("mainScheduler") private val mainScheduler: Scheduler,
+    private val section: String
 ) : ArticleListContract.Presenter {
 
     private var disposable: Disposable? = null
 
     override fun getArticles() {
-        disposable = articleListService.getArticlesList("home")
+        disposable = articleListService.getArticlesList(section)
             .subscribeOn(ioScheduler)
             .observeOn(mainScheduler)
             .subscribe(

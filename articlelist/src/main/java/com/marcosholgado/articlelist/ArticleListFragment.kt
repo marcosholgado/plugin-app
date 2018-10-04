@@ -20,8 +20,8 @@ import javax.inject.Inject
 
 open class ArticleListFragment : Fragment(), ArticleListContract.View, NewsDelegateAdapter.onViewSelectedListener {
 
-    override fun onItemSelected(url: String?) {
-        Toast.makeText(context, "This is a test", Toast.LENGTH_SHORT).show()
+    override fun onItemSelected(url: String) {
+        Toast.makeText(context, "Clicked on $url", Toast.LENGTH_SHORT).show()
     }
 
     @Inject
@@ -30,18 +30,21 @@ open class ArticleListFragment : Fragment(), ArticleListContract.View, NewsDeleg
     @Inject
     lateinit var presenter: ArticleListContract.Presenter
 
+    private val section by lazy {
+       arguments!!.getString("section")
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_article_list, container, false)
 
-
     override fun onAttach(context: Context) {
         DaggerArticleListComponent
             .builder()
             .coreComponent(CoreInjectHelper.provideCoreComponent(activity!!.applicationContext))
-            .articleListModule(ArticleListModule(this, this))
+            .articleListModule(ArticleListModule(this, this, section))
             .build()
             .inject(this)
         super.onAttach(context)

@@ -9,6 +9,12 @@
         android:label="TopStoriesFragment">
 
         <argument
+            android:name="section"
+            app:argType="string"
+            android:defaultValue="home"
+            />
+
+        <argument
             android:name="url"
             app:argType="string" />
 
@@ -34,5 +40,11 @@
         android:id="@+id/articleListAction"
         android:name="com.marcosholgado.articlelist.ArticleListFragment"
         android:label="@string/top_stories_title" >
+
+        <argument
+            android:name="section"
+            app:argType="string"
+            android:defaultValue="sports"
+            />
     </fragment>
 </navigation>

@@ -14,7 +14,7 @@ class NewsDelegateAdapter(val viewActions: onViewSelectedListener) :
     ViewTypeDelegateAdapter {
 
     interface onViewSelectedListener {
-        fun onItemSelected(url: String?)
+        fun onItemSelected(url: String)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {

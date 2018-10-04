@@ -13,19 +13,23 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 @Module
 class ArticleListModule(private val view: ArticleListContract.View,
-                        private val newsDelegateAdapter: NewsDelegateAdapter.onViewSelectedListener) {
+                        private val newsDelegateAdapter: NewsDelegateAdapter.onViewSelectedListener,
+                        private val section: String) {
 
     @Provides
     fun providesPresenter(presenter: ArticleListPresenter): ArticleListContract.Presenter = presenter
 
     @Provides
-    fun providesView() : ArticleListContract.View = view
+    fun providesView(): ArticleListContract.View = view
 
     @Provides
-    fun provideAdapter() : ArticleListAdapter = ArticleListAdapter(newsDelegateAdapter)
+    fun provideAdapter(): ArticleListAdapter = ArticleListAdapter(newsDelegateAdapter)
 
     @Provides
-    fun providesArticleListService() : ArticleListService {
+    fun provideSection(): String = section
+
+    @Provides
+    fun providesArticleListService(): ArticleListService {
         val retrofit = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
