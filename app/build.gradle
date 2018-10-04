@@ -30,6 +30,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation project(path: ':articlereader')
     implementation project(path: ':articlelist')
     implementation project(path: ':weather')
     implementation project(path: ':core')

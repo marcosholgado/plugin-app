@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
-    app:startDestination="@id/articleListAction">
+    app:startDestination="@id/topStoriesFragment">
 
     <fragment
-        android:id="@+id/articleListAction"
-        android:name="com.marcosholgado.articlelist.ArticleListFragment"
-        android:label="@string/top_stories_title" />
+        android:id="@+id/topStoriesFragment"
+        android:name="com.marcosholgado.droidcon.home.features.top_stories.TopStoriesFragment"
+        android:label="TopStoriesFragment">
+
+        <argument
+            android:name="url"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_articles_to_reader"
+            app:destination="@id/articleReaderActivity" />
+
+    </fragment>
     <fragment
         android:id="@+id/weatherAction"
         android:name="com.marcosholgado.weather.WeatherFragment"
         android:label="@string/your_weather_title" />
+    <activity
+        android:id="@+id/articleReaderActivity"
+        android:name="com.marcosholgado.articlereader.ArticleReaderActivity"
+        android:label="ArticleReaderActivity">
+
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </activity>
+    <fragment
+        android:id="@+id/articleListAction"
+        android:name="com.marcosholgado.articlelist.ArticleListFragment"
+        android:label="@string/top_stories_title" >
+    </fragment>
 </navigation>
