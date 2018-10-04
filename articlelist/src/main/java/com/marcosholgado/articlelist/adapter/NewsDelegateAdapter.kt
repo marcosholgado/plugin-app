@@ -10,7 +10,7 @@ import com.marcosholgado.core.list_utils.ViewType
 import com.marcosholgado.core.list_utils.ViewTypeDelegateAdapter
 import kotlinx.android.synthetic.main.item_article.view.*
 
-class NewsDelegateAdapter(val viewActions: onViewSelectedListener?) :
+class NewsDelegateAdapter(val viewActions: onViewSelectedListener) :
     ViewTypeDelegateAdapter {
 
     interface onViewSelectedListener {
@@ -42,6 +42,8 @@ class NewsDelegateAdapter(val viewActions: onViewSelectedListener?) :
                 .with(this.itemView)
                 .load(item.getThumbnail())
                 .into(thumbnail)
+
+            super.itemView.setOnClickListener { viewActions.onItemSelected(item.url)}
         }
     }
 }

@@ -3,6 +3,7 @@ package com.marcosholgado.articlelist.di
 import com.marcosholgado.articlelist.ArticleListContract
 import com.marcosholgado.articlelist.ArticleListPresenter
 import com.marcosholgado.articlelist.adapter.ArticleListAdapter
+import com.marcosholgado.articlelist.adapter.NewsDelegateAdapter
 import com.marcosholgado.articlelist.network.ArticleListService
 import dagger.Module
 import dagger.Provides
@@ -11,7 +12,8 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 @Module
-class ArticleListModule(val view: ArticleListContract.View) {
+class ArticleListModule(private val view: ArticleListContract.View,
+                        private val newsDelegateAdapter: NewsDelegateAdapter.onViewSelectedListener) {
 
     @Provides
     fun providesPresenter(presenter: ArticleListPresenter): ArticleListContract.Presenter = presenter
@@ -20,7 +22,7 @@ class ArticleListModule(val view: ArticleListContract.View) {
     fun providesView() : ArticleListContract.View = view
 
     @Provides
-    fun provideAdapter() : ArticleListAdapter = ArticleListAdapter()
+    fun provideAdapter() : ArticleListAdapter = ArticleListAdapter(newsDelegateAdapter)
 
     @Provides
     fun providesArticleListService() : ArticleListService {

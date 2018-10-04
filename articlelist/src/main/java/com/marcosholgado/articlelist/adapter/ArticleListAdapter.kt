@@ -9,7 +9,7 @@ import com.marcosholgado.core.list_utils.ViewType
 import com.marcosholgado.core.list_utils.ViewTypeDelegateAdapter
 import java.util.ArrayList
 
-class ArticleListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ArticleListAdapter(private val listener: NewsDelegateAdapter.onViewSelectedListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var items: ArrayList<ViewType>
     private var delegateAdapters = SparseArrayCompat<ViewTypeDelegateAdapter>()
@@ -20,7 +20,7 @@ class ArticleListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     init {
         delegateAdapters.apply {
             put(Constants.LOADING, LoadingDelegateAdapter())
-            put(Constants.NEWS, NewsDelegateAdapter(null))
+            put(Constants.NEWS, NewsDelegateAdapter(listener))
         }
 
         items = ArrayList()
