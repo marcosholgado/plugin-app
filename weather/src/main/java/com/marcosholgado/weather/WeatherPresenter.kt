@@ -11,14 +11,15 @@ class WeatherPresenter @Inject constructor(
     private val view: WeatherContract.View,
     private val weatherService: WeatherService,
     @Named("ioScheduler") private val ioScheduler: Scheduler,
-    @Named("mainScheduler") private val mainScheduler: Scheduler
+    @Named("mainScheduler") private val mainScheduler: Scheduler,
+    private val city: String
 ) : WeatherContract.Presenter {
 
     private var disposable: Disposable? = null
 
     override fun getWeather() {
         disposable = weatherService
-            .getWeather("Leeds", "c099b5d4d2978eb94d0eeb30c6472a09", "metric")
+            .getWeather(city, "c099b5d4d2978eb94d0eeb30c6472a09", "metric")
             .subscribeOn(ioScheduler)
             .observeOn(mainScheduler)
             .subscribe(

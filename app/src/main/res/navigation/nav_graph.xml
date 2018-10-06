@@ -26,7 +26,13 @@
     <fragment
         android:id="@+id/weatherAction"
         android:name="com.marcosholgado.weather.WeatherFragment"
-        android:label="@string/your_weather_title" />
+        android:label="@string/your_weather_title">
+        <argument
+            android:name="city"
+            app:argType="string"
+            android:defaultValue="London"
+            />
+    </fragment>
     <activity
         android:id="@+id/articleReaderActivity"
         android:name="com.marcosholgado.articlereader.ArticleReaderActivity"

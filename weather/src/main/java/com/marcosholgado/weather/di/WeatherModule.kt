@@ -10,13 +10,16 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 @Module
-class WeatherModule(val view: WeatherContract.View) {
+class WeatherModule(private val view: WeatherContract.View, private val city: String) {
 
     @Provides
     fun providesPresenter(presenter: WeatherPresenter): WeatherContract.Presenter = presenter
 
     @Provides
     fun providesView(): WeatherContract.View = view
+
+    @Provides
+    fun providesCity(): String = city
 
     @Provides
     fun providesWeatherService() : WeatherService {

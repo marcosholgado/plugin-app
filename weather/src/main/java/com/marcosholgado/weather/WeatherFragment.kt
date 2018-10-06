@@ -21,6 +21,10 @@ class WeatherFragment : Fragment(), WeatherContract.View {
     @Inject
     lateinit var presenter: WeatherContract.Presenter
 
+    private val cityName by lazy {
+        arguments!!.getString("city")
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -32,7 +36,7 @@ class WeatherFragment : Fragment(), WeatherContract.View {
         DaggerWeatherComponent
             .builder()
             .coreComponent(CoreInjectHelper.provideCoreComponent(activity!!.applicationContext))
-            .weatherModule(WeatherModule(this))
+            .weatherModule(WeatherModule(this, cityName))
             .build()
             .inject(this)
         super.onAttach(context)
