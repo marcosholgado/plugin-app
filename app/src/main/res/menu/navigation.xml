@@ -2,16 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@id/topStoriesFragment"
-        android:icon="@android:drawable/ic_menu_camera"
+        android:icon="@drawable/politics"
         android:title="@string/news" />
 
     <item
         android:id="@id/articleListAction"
-        android:icon="@android:drawable/ic_menu_camera"
-        android:title="sports" />
+        android:icon="@drawable/sports"
+        android:title="Sports" />
 
     <item
         android:id="@id/weatherAction"
-        android:icon="@android:drawable/ic_btn_speak_now"
+        android:icon="@drawable/weather"
         android:title="@string/weather" />
 </menu>
