@@ -7,11 +7,12 @@ import com.marcosholgado.core.di.DaggerCoreComponent
 
 class App : Application(), CoreComponentProvider{
 
-    var coreComponent: CoreComponent? = null
+    private lateinit var coreComponent: CoreComponent
 
     override fun provideCoreComponent(): CoreComponent {
-        return coreComponent.let {
-            DaggerCoreComponent.builder().build()
+        if (!this::coreComponent.isInitialized) {
+            coreComponent = DaggerCoreComponent.builder().build()
         }
+        return coreComponent
     }
 }
