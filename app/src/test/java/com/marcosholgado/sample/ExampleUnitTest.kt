@@ -1,4 +1,4 @@
-package com.marcosholgado.droidcon
+package com.marcosholgado.sample
 
 import org.junit.Test
 

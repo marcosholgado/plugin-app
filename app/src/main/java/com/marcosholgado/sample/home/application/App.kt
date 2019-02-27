@@ -1,4 +1,4 @@
-package com.marcosholgado.droidcon.home.application
+package com.marcosholgado.sample.home.application
 
 import android.app.Application
 import com.marcosholgado.core.di.CoreComponent

@@ -7,6 +7,6 @@ import retrofit2.http.Path
 
 interface ArticleListService {
 
-    @GET("topstories/v2/{section}.json?api-key=f858ea0aa1814d169061d4b7f922cc4d")
+    @GET("topstories/v2/{section}.json?api-key=Urdc0bHeoBEsWPByKxpGmqZBO8Uj8vp7")
     fun getArticlesList(@Path("section") section: String): Single<ArticleListResponse>
 }

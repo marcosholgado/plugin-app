@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Droidcon Demo</string>
+    <string name="app_name">Plugin Demo</string>
 
     <string name="your_weather_title">Your Weather</string>
     <string name="top_stories_title">Top Stories</string>

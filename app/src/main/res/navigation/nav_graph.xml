@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/topStoriesFragment"
-        android:name="com.marcosholgado.droidcon.home.features.top_stories.TopStoriesFragment"
+        android:name="com.marcosholgado.sample.home.features.top_stories.TopStoriesFragment"
         android:label="TopStoriesFragment">
 
         <argument
